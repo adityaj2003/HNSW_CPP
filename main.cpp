@@ -63,7 +63,7 @@ private:
     double mL;
 
     int randomLevel() {
-        double r = uniform(rng);  // Get a random number in (0,1)
+        double r = uniform(rng);
         int level = (int) std::floor(-std::log(r) * mL);
         return level;
     }
@@ -123,8 +123,7 @@ public:
             std::vector<std::pair<float, HNSWNode*>>,
             std::greater<std::pair<float, HNSWNode*>>
         > candidates;
-    
-        // ✅ Initialize `visited`, `candidates`, and `result` with all entry points
+
         for (auto node : ep) {
             float nodeDist = distance(query, node->getVector());
             visited.insert(node);
